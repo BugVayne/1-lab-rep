@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "CppUnitTest.h"
-#include "Header.h"
+#include "TicTacToe.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -11,7 +11,7 @@ namespace UnitTest1
 	public:
 		TEST_METHOD(SetMatrixSizeTest)
 		{
-			TTT t;
+			TicTacToe t;
 			stringstream input;
 			input << "3" << endl;
 			istringstream redirect(input.str());
@@ -27,13 +27,13 @@ namespace UnitTest1
 		}
 		TEST_METHOD(GetMatrixSizeTest)
 		{
-			TTT t;
+			TicTacToe t;
 			int a = t.GetMatrixSize();			
 			Assert::AreEqual(a, 3);
 		}
 		TEST_METHOD(CreateMetrixTest)
 		{
-			TTT t;
+			TicTacToe t;
 			t.CreateMatrix();
 			stringstream buf;
 			streambuf* oldbuf = cout.rdbuf(buf.rdbuf());
@@ -44,28 +44,28 @@ namespace UnitTest1
 		}
 		TEST_METHOD(DiagonalCheckTest)
 		{
-			TTT t;
+			TicTacToe t;
 			t.CreateMatrix();
 			char buffer = t.DiagonalCheck();
 			Assert::AreEqual(buffer, 'L');
 		}
 		TEST_METHOD(HorizontalCheckTest)
 		{
-			TTT t;
+			TicTacToe t;
 			t.CreateMatrix();
 			char buffer = t.HorizontalCheck();
 			Assert::AreEqual(buffer, 'L');
 		}
 		TEST_METHOD(VerticalCheckTest)
 		{
-			TTT t;
+			TicTacToe t;
 			t.CreateMatrix();
 			char buffer = t.VerticalCheck();
 			Assert::AreEqual(buffer, 'L');
 		}
 		TEST_METHOD(AllCheckTest1)
 		{
-			TTT t;
+			TicTacToe t;
 			t.CreateMatrix();
 			char buffer = t.AllCheck();
 			Assert::AreEqual(buffer, 'L');
@@ -73,7 +73,7 @@ namespace UnitTest1
 
 		TEST_METHOD(AllCheckTest2)
 		{
-			TTT t;
+			TicTacToe t;
 			t.CreateMatrix();
 			t.AddElement(1, 'X');
 			t.AddElement(2, 'X');
@@ -84,7 +84,7 @@ namespace UnitTest1
 
 		TEST_METHOD(AllCheckTest3)
 		{
-			TTT t;
+			TicTacToe t;
 			t.CreateMatrix();
 			t.AddElement(1, 'X');
 			t.AddElement(4, 'X');
@@ -95,7 +95,7 @@ namespace UnitTest1
 
 		TEST_METHOD(AllCheckTest4)
 		{
-			TTT t;
+			TicTacToe t;
 			t.CreateMatrix();
 			t.AddElement(1, 'X');
 			t.AddElement(5, 'X');
@@ -106,7 +106,7 @@ namespace UnitTest1
 
 		TEST_METHOD(AllBoardIsFullTest1)
 		{
-			TTT t;
+			TicTacToe t;
 			t.CreateMatrix();
 			bool buffer = t.AllBoardIsFull();
 			Assert::IsFalse(buffer);
@@ -114,7 +114,7 @@ namespace UnitTest1
 
 		TEST_METHOD(AllBoardIsFullTest2)
 		{
-			TTT t;
+			TicTacToe t;
 			t.CreateMatrix();
 			t.AddElement(1, 'X');
 			t.AddElement(2, 'X');
@@ -130,27 +130,16 @@ namespace UnitTest1
 		}
 		TEST_METHOD(DeleteMatrixTest)
 		{
-			TTT t;
+			TicTacToe t;
 			t.CreateMatrix();
 			t.DeleteMatrix();
-			//Assert::IsNull(t.arr);
+			
 		}
-		/*TEST_METHOD(MakeAMoveTest)
-		{
-			TTT t;
-			t.CreateMatrix();
-			stringstream input;
-			input << "3";
-			istringstream redirect(input.str());
-			streambuf* oldCinBuf = cin.rdbuf(redirect.rdbuf());
-			t.MakeAMove('X');
-			cin.rdbuf(oldCinBuf);
-			Assert::AreEqual(t.GetArrElement(3), 'X');
-		}*/
+	
 
 		TEST_METHOD(PrintMatrixTest)
 		{
-			TTT t;
+			TicTacToe t;
 			t.CreateMatrix();
 			stringstream buf;
 			streambuf* oldbuf = cout.rdbuf(buf.rdbuf());
@@ -163,38 +152,18 @@ namespace UnitTest1
 		}
 
 
-		/*TEST_METHOD(MENUTest)
-		{
-
-			TTT t;
-			t.CreateMatrix();
-			stringstream buf;
-			streambuf* oldbuf = cout.rdbuf(buf.rdbuf());
-			t.MENU();
-			cout.rdbuf(oldbuf);
-
-			string output = buf.str();
-			char a = output[0];
-			Assert::AreEqual(a, ' ');
-		}*/
 		TEST_METHOD(AddElementTest)
 		{
-			TTT t;
+			TicTacToe t;
 			t.CreateMatrix();
 			t.AddElement(3, 'X');
 			char a = t.GetArrElement(3);
 			Assert::AreEqual(a, 'X');
 		}
-		/*TEST_METHOD(GetElementTest)
-		{
-			TTT t;
-			t.CreateMatrix();
-			char a = t.GetArrElement(3);
-			Assert::AreEqual(a, ' ');
-		}*/
+	
 		TEST_METHOD(HorizontalCheckTest2)
 		{
-			TTT t;
+			TicTacToe t;
 			t.CreateMatrix();
 			t.AddElement(1, 'X');
 			t.AddElement(2, 'X');
@@ -204,7 +173,7 @@ namespace UnitTest1
 		}
 		TEST_METHOD(VerticalCheckTest2)
 		{
-			TTT t;
+			TicTacToe t;
 			t.CreateMatrix();
 			t.AddElement(1, 'X');
 			t.AddElement(4, 'X');
@@ -214,7 +183,7 @@ namespace UnitTest1
 		}
 		TEST_METHOD(DiagonalCheckTest2)
 		{
-			TTT t;
+			TicTacToe t;
 			t.CreateMatrix();
 			t.AddElement(1, 'X');
 			t.AddElement(5, 'X');
@@ -225,7 +194,7 @@ namespace UnitTest1
 
 		TEST_METHOD(DiagonalCheckTest3)
 		{
-			TTT t;
+			TicTacToe t;
 			t.CreateMatrix();
 			t.AddElement(3, 'X');
 			t.AddElement(5, 'X');

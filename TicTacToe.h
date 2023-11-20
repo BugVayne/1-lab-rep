@@ -3,7 +3,7 @@
 
 using namespace std;
 
-class TTT {
+class TicTacToe {
 private:
 	int matrix_size = 3;
 	char** arr;
@@ -19,7 +19,7 @@ public:
 	char VerticalCheck();
 	bool AllBoardIsFull();
 	void DeleteMatrix();
-	void MENU();
+	void Menu();
 	char GetArrElement(int pos);
 	void AddElement(int pos, char);
 };

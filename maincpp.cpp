@@ -1,12 +1,12 @@
 #include<iostream>
-#include"Header.h"
+#include"TicTacToe.h"
 using namespace std;
 
 int main() {
-	TTT t;
+	TicTacToe t;
 	t.SetMatrixSize();
 	t.CreateMatrix();
-	t.MENU();
+	t.Menu();
 	t.DeleteMatrix();
 	return 0;	
 }

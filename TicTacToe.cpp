@@ -1,6 +1,6 @@
-#include"Header.h"
+#include"TicTacToe.h"
 
-void TTT::SetMatrixSize() {
+void TicTacToe::SetMatrixSize() {
 	cout << "Enter the size of the field > ";
 	cin>>matrix_size;
 	if (matrix_size <= 0)
@@ -10,7 +10,7 @@ void TTT::SetMatrixSize() {
 	}
  }
 
-void TTT::CreateMatrix()
+void TicTacToe::CreateMatrix()
 {
 	arr = new char* [matrix_size];
 	for (size_t i = 0; i < matrix_size; i++)
@@ -20,11 +20,11 @@ void TTT::CreateMatrix()
 			arr[i][j] = ' ';
 }
 
-void TTT::PrintMatrix()
+void TicTacToe::PrintMatrix()
 {
 	system("cls");
 	cout << " \n";
-	for (size_t k = 0; k < matrix_size; k++)
+	for (size_t i = 0; i < matrix_size; i++)
 		cout << " -----  ";
 	cout << endl;
 	for (size_t i = 0; i < matrix_size; i++)
@@ -32,13 +32,13 @@ void TTT::PrintMatrix()
 		for (size_t j = 0; j < matrix_size; j++)
 			cout << " | " << arr[i][j] <<" |  ";
 		cout << endl;
-		for (size_t k = 0; k < matrix_size; k++)
+		for (size_t j = 0; j < matrix_size; j++)
 			cout << " -----  ";
 		cout << "\n";
 	}
 }
 
-void TTT::MakeAMove(char pl)
+void TicTacToe::MakeAMove(char pl)
 {
 	int pos;
 	cin >> pos;
@@ -65,7 +65,7 @@ void TTT::MakeAMove(char pl)
 	this->PrintMatrix();
 }
 
-char TTT::DiagonalCheck()
+char TicTacToe::DiagonalCheck()
 {
 	char temp = arr[0][0];
 	int counter = 0;
@@ -90,7 +90,7 @@ char TTT::DiagonalCheck()
 	return 'L';
 }
 
-char TTT::HorizontalCheck()
+char TicTacToe::HorizontalCheck()
 {
 	for (size_t i = 0; i < matrix_size; i++)
 	{
@@ -111,7 +111,7 @@ char TTT::HorizontalCheck()
 	return 'L';
 }
 
-char TTT::VerticalCheck()
+char TicTacToe::VerticalCheck()
 {
 	for (size_t i = 0; i < matrix_size; i++)
 	{
@@ -132,7 +132,7 @@ char TTT::VerticalCheck()
 	return 'L';
 }
 
-bool TTT:: AllBoardIsFull()
+bool TicTacToe:: AllBoardIsFull()
 {
 	for (size_t i = 0; i < matrix_size; i++)
 	{
@@ -145,7 +145,7 @@ bool TTT:: AllBoardIsFull()
 	return true;
 }
 
-char TTT::AllCheck()
+char TicTacToe::AllCheck()
 {
 	char VC= this->VerticalCheck();
 	if (VC == 'X')
@@ -165,7 +165,7 @@ char TTT::AllCheck()
 	return 'L';
 }
 
-void TTT::MENU()
+void TicTacToe::Menu()
 {
 	cout << " \n";
 	bool game = true;
@@ -203,7 +203,7 @@ void TTT::MENU()
 	return;
 }
 
-void TTT::DeleteMatrix()
+void TicTacToe::DeleteMatrix()
 {
 	for (size_t i = 0; i < matrix_size; i++)
 		delete[] arr[i];
@@ -211,7 +211,7 @@ void TTT::DeleteMatrix()
 	return;
 }
 
-char TTT::GetArrElement(int pos)
+char TicTacToe::GetArrElement(int pos)
 {
 	int counter = 1;
 	for (size_t i = 0; i <this->GetMatrixSize(); i++)
@@ -228,7 +228,7 @@ char TTT::GetArrElement(int pos)
 }
 
 
-void TTT::AddElement(int pos, char pl)
+void TicTacToe::AddElement(int pos, char pl)
 {
 		int counter = 0;
 	for (size_t i = 0; i < matrix_size; i++)
